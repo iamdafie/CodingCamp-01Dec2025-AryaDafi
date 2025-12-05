@@ -1,98 +1,128 @@
-function setGreetingName() {
-  const nameSpan = document.getElementById("greeting-name");
-  let userName = prompt("Masukkan nama kamu:", "");
+// js/main.js
+document.addEventListener("DOMContentLoaded", () => {
+  // ==============================
+  // 1. Smooth scroll navbar
+  // ==============================
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
-  if (!userName || userName.trim() === "") {
-    userName = "Harfi";
-  }
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      const targetEl = document.querySelector(targetId);
 
-  nameSpan.textContent = userName.trim();
-}
-
-function setupForm() {
-  const form = document.getElementById("message-form");
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const phoneInput = document.getElementById("phone");
-    const messageInput = document.getElementById("message");
-
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const message = messageInput.value.trim();
-
-    const nameError = document.getElementById("name-error");
-    const emailError = document.getElementById("email-error");
-    const phoneError = document.getElementById("phone-error");
-    const messageError = document.getElementById("message-error");
-
-    nameError.textContent = "";
-    emailError.textContent = "";
-    phoneError.textContent = "";
-    messageError.textContent = "";
-
-    let isValid = true;
-   
-    
-    if (name === "") {
-      nameError.textContent = "Name is required.";
-      isValid = false;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email === "") {
-      emailError.textContent = "Email is required.";
-      isValid = false;
-    } else if (!emailPattern.test(email)) {
-      emailError.textContent = "Please enter a valid email.";
-      isValid = false;
-    }
-
-    const phonePattern = /^[0-9+\s()-]{8,}$/;
-    if (phone === "") {
-      phoneError.textContent = "Phone number is required.";
-      isValid = false;
-    } else if (!phonePattern.test(phone)) {
-      phoneError.textContent = "Please enter a valid phone number.";
-      isValid = false;
-    }
-
-    if (message === "") {
-      messageError.textContent = "Message is required.";
-      isValid = false;
-    } else if (message.length < 5) {
-      messageError.textContent = "Message should be at least 5 characters.";
-      isValid = false;
-    }
-
-    if (!isValid) {
-      return; 
-    }
-
-    const now = new Date();
-    const timeString = now.toLocaleString();
-
-    document.getElementById("result-time").textContent = timeString;
-    document.getElementById("result-name").textContent = name;
-    document.getElementById("result-email").textContent = email;
-    document.getElementById("result-phone").textContent = phone;
-    document.getElementById("result-message").textContent = message;
-
-    form.reset();
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   });
-}
 
-function setFooterYear() {
-  const yearSpan = document.getElementById("footer-year");
-  yearSpan.textContent = new Date().getFullYear();
-}
+  // ==============================
+  // 2. Navbar mengecil saat scroll
+  // ==============================
+  const navbar = document.querySelector(".navbar");
 
-document.addEventListener("DOMContentLoaded", function () {
-  setGreetingName();
-  setupForm();
-  setFooterYear();
+  const handleNavbar = () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add("navbar-scrolled");
+    } else {
+      navbar.classList.remove("navbar-scrolled");
+    }
+  };
+
+  handleNavbar();
+  window.addEventListener("scroll", handleNavbar);
+
+  // ==============================
+  // 3. Highlight menu aktif saat scroll
+  // ==============================
+  const sections = document.querySelectorAll("section[id]");
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const link = document.querySelector(
+          `.nav-links a[href="#${id}"]`
+        );
+
+        if (!link) return;
+
+        if (entry.isIntersecting) {
+          navLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    },
+    {
+      threshold: 0.4,
+    }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+
+  // ==============================
+  // 4. Reveal animation untuk elemen
+  // ==============================
+  const revealEls = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+
+  // ==============================
+  // 5. Form kontak: validasi sederhana
+  // ==============================
+  const contactForm = document.querySelector(".contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nameInput = contactForm.querySelector('input[type="text"]');
+      const emailInput = contactForm.querySelector('input[type="email"]');
+      const messageInput = contactForm.querySelector("textarea");
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      const errors = [];
+
+      if (!name) errors.push("Nama wajib diisi");
+      if (!email) {
+        errors.push("Email wajib diisi");
+      } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+        errors.push("Format email tidak valid");
+      }
+      if (!message) errors.push("Pesan belum diisi");
+
+      let notice = contactForm.querySelector(".form-notice");
+      if (!notice) {
+        notice = document.createElement("div");
+        notice.className = "form-notice";
+        contactForm.prepend(notice);
+      }
+
+      if (errors.length) {
+        notice.dataset.status = "error";
+        notice.textContent = errors.join(" • ");
+      } else {
+        notice.dataset.status = "success";
+        notice.textContent =
+          "Terima kasih! Pesan kamu sudah tercatat (simulasi, belum terkirim ke server).";
+        contactForm.reset();
+      }
+    });
+  }
 });

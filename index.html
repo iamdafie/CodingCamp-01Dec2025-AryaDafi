@@ -1,193 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website - Company Profile</title>
+  <title>ARDAFCompany • Company Profile</title>
+
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header class="navbar">
-    <div class="container nav-inner">
-      <div class="logo">
-        <span class="logo-circle">☺</span>
-        <span class="logo-text">MyWebsite</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#profile">Our Profile</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Message Us</a>
+    <div class="container nav-content">
+      <div class="logo reveal">ARDAF<span>Company</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Beranda</a></li>
+          <li><a href="#about">Profil</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#projects">Portfolio</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO / HOME -->
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="hero-subtitle">Hi <span id="greeting-name">Harfi</span>,</p>
-          <h1 class="hero-title">Welcome To Website</h1>
-          <p class="hero-desc">
-            Ini adalah website sederhana untuk company profile & komunikasi dengan stakeholder.
-          </p>
-        </div>
-        <div class="hero-banner">
-          <!-- photo banner -->
-          <span>Photo Banner</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR HEADQUARTER -->
-    <section class="hq-section">
-      <div class="container">
-        <h2 class="section-title">Our Headquarter</h2>
-        <div class="hq-grid">
-          <div class="hq-item">
-            <div class="circle"></div>
-            <p>Jakarta</p>
-          </div>
-          <div class="hq-item">
-            <div class="circle"></div>
-            <p>Bandung</p>
-          </div>
-          <div class="hq-item">
-            <div class="circle"></div>
-            <p>Cianjur</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR PROFILE (ABOUT + VISION MISSION) -->
-    <section id="profile" class="profile-section">
-      <div class="container">
-        <h2 class="section-title">Our Profile</h2>
-
-        <div class="profile-banner">
-          <!-- photo banner khusus profile -->
-          <span>Company Photo Banner</span>
-        </div>
-
-        <div class="profile-grid">
-          <div class="profile-about">
-            <h3>About The Company</h3>
-            <p>
-              PT Contoh Teknologi Indonesia adalah perusahaan yang bergerak di bidang
-              layanan digital dan pengembangan perangkat lunak. Kami membantu
-              bisnis untuk bertransformasi ke era teknologi dengan solusi yang
-              modern, aman, dan scalable.
-            </p>
-            <p>
-              Tim kami terdiri dari software engineer, UI/UX designer, dan analis
-              bisnis yang berpengalaman menangani berbagai proyek mulai dari website,
-              aplikasi mobile, hingga sistem enterprise.
-            </p>
-          </div>
-
-          <div class="profile-vm">
-            <h3>Vision</h3>
-            <p>
-              Menjadi partner teknologi terpercaya yang memberikan dampak positif
-              bagi bisnis dan masyarakat.
-            </p>
-
-            <h3>Mission</h3>
-            <ul>
-              <li>Menghadirkan solusi digital yang mudah digunakan dan aman.</li>
-              <li>Mendukung UMKM hingga perusahaan besar dalam transformasi digital.</li>
-              <li>Mengutamakan kualitas, kecepatan, dan kepuasan pelanggan.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="portfolio-section">
-      <div class="container">
-        <h2 class="section-title">Portfolio</h2>
-        <p class="section-desc">
-          Berikut beberapa contoh proyek yang pernah kami kerjakan.
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-text reveal">
+        <p class="hero-tagline">Solusi Digital Profesional</p>
+        <h1>Membantu bisnis tumbuh lewat teknologi & desain yang tepat.</h1>
+        <p class="hero-desc">
+          Kami adalah tim pengembang & desainer yang fokus pada pembuatan website
+          modern, cepat, dan berorientasi pada hasil.
         </p>
-        <div class="portfolio-grid">
-          <div class="portfolio-card">
-            <h3>Company Website</h3>
-            <p>Website profil perusahaan jasa konsultan dengan tampilan modern dan responsif.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary">Konsultasi Gratis</a>
+          <a href="#projects" class="btn ghost">Lihat Portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-illustration reveal">
+        <div class="hero-card">
+          <h3>+20 Project Selesai</h3>
+          <p>Website, landing page, dan sistem informasi untuk berbagai klien.</p>
+        </div>
+        <div class="hero-badge">Available for Project</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container section-grid reveal">
+      <div>
+        <p class="section-tag">Tentang Kami</p>
+        <h2>Siapa kami & apa yang kami kerjakan.</h2>
+      </div>
+
+      <div class="section-content">
+        <p>
+          ArdafCompany adalah studio pengembangan berbasis di Indonesia tepatnya berlokasi dikota Cianjur yang
+          berfokus pada pembuatan website, aplikasi, dan identitas digital.
+        </p>
+        <p>
+          Kami memadukan desain yang bersih dengan teknologi yang tepat agar
+          bisnis Anda terlihat profesional, mudah ditemukan, dan nyaman digunakan.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat">
+            <span>3+</span>
+            <p>Tahun pengalaman</p>
           </div>
-          <div class="portfolio-card">
-            <h3>E-Commerce</h3>
-            <p>Platform belanja online untuk UMKM dengan fitur pembayaran dan manajemen stok.</p>
+          <div class="stat">
+            <span>20+</span>
+            <p>Project selesai</p>
           </div>
-          <div class="portfolio-card">
-            <h3>Internal Dashboard</h3>
-            <p>Dashboard analitik untuk memantau performa bisnis secara real-time.</p>
+          <div class="stat">
+            <span>10+</span>
+            <p>Klien puas</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- MESSAGE US -->
-    <section id="contact" class="contact-section">
-      <div class="container contact-grid">
-        <!-- FORM -->
-        <div class="contact-form-wrapper">
-          <h2 class="section-title">Message Us</h2>
-          <form id="message-form" novalidate>
-            <div class="form-group">
-              <label for="name">Name<span class="required">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Your name" />
-              <small class="error" id="name-error"></small>
-            </div>
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container reveal">
+      <p class="section-tag">Layanan</p>
+      <h2>Apa yang bisa kami bantu.</h2>
 
-            <div class="form-group">
-              <label for="email">Email<span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" />
-              <small class="error" id="email-error"></small>
-            </div>
+      <div class="cards-grid">
+        <article class="card reveal">
+          <h3>Website Company Profile</h3>
+          <p>
+            Website profesional yang merepresentasikan brand dan layanan bisnis Anda.
+          </p>
+          <ul class="card-list">
+            <li>Desain modern & responsif</li>
+            <li>SEO basic setup</li>
+            <li>Integrasi form kontak</li>
+          </ul>
+        </article>
 
-            <div class="form-group">
-              <label for="phone">Phone Number<span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx" />
-              <small class="error" id="phone-error"></small>
-            </div>
+        <article class="card reveal">
+          <h3>Landing Page</h3>
+          <p>
+            Halaman khusus untuk campaign, promosi produk, atau pengumpulan leads.
+          </p>
+          <ul class="card-list">
+            <li>Fokus konversi</li>
+            <li>Copywriting sederhana</li>
+            <li>Integrasi WhatsApp / Email</li>
+          </ul>
+        </article>
 
-            <div class="form-group">
-              <label for="message">Message<span class="required">*</span></label>
-              <textarea id="message" name="message" rows="4" placeholder="Write your question or message"></textarea>
-              <small class="error" id="message-error"></small>
-            </div>
+        <article class="card reveal">
+          <h3>Custom Web App</h3>
+          <p>
+            Sistem informasi atau aplikasi web sesuai kebutuhan operasional bisnis.
+          </p>
+          <ul class="card-list">
+            <li>Analisis kebutuhan</li>
+            <li>Dashboard & manajemen data</li>
+            <li>Pengembangan bertahap</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            <button type="submit" class="btn-submit">Submit</button>
-          </form>
+  <!-- PROJECTS -->
+  <section class="section section-alt" id="projects">
+    <div class="container reveal">
+      <p class="section-tag">Portfolio</p>
+      <h2>Beberapa project terbaru.</h2>
+
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-label">Website</div>
+          <h3>VincenzoStore • Top Up Game</h3>
+          <p>Website top-up game dengan tampilan modern dan fokus pada konversi.</p>
         </div>
 
-        <!-- HASIL SUBMIT -->
-        <aside class="contact-info">
-          <h3>Form Result</h3>
-          <div class="result-box">
-            <p><strong>Current time:</strong> <span id="result-time">-</span></p>
-            <p><strong>Name:</strong> <span id="result-name">-</span></p>
-            <p><strong>Email:</strong> <span id="result-email">-</span></p>
-            <p><strong>Phone:</strong> <span id="result-phone">-</span></p>
-            <p><strong>Message:</strong></p>
-            <p id="result-message">-</p>
-          </div>
-        </aside>
+        <div class="project-card reveal">
+          <div class="project-label">Company Profile</div>
+          <h3>ArdafCompany • Company Profile</h3>
+          <p>Company profile bersih, profesional, dan mudah dinavigasi.</p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-label">Web App</div>
+          <h3>Aplikasi Koperasi Kampus Universitas Putra Indonesia (UNPI)</h3>
+          <p>Sistem informasi untuk manajemen data anggota, simpan pinjam, Pembelian barang dan laporan.</p>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container contact-grid reveal">
+      <div>
+        <p class="section-tag">Kontak</p>
+        <h2>Siap diskusi project baru?</h2>
+        <p>
+          Ceritakan kebutuhan Anda, kami bantu rekomendasikan solusi yang paling pas.
+        </p>
+
+        <ul class="contact-list">
+          <li><strong>Email:</strong> yourcompany@email.com</li>
+          <li><strong>WhatsApp:</strong> +62 8xx xxxx xxxx</li>
+          <li><strong>Lokasi:</strong> Indonesia</li>
+        </ul>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <label>Nama</label>
+          <input type="text" placeholder="Nama lengkap" />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@contoh.com" />
+        </div>
+
+        <div class="form-group">
+          <label>Pesan</label>
+          <textarea rows="4" placeholder="Ceritakan singkat kebutuhan project Anda"></textarea>
+        </div>
+
+        <button type="submit" class="btn primary full">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="footer-year"></span> MyWebsite. All rights reserved.</p>
+    <div class="container footer-content">
+      <p>© 2025 ARDAFCompany. All rights reserved.</p>
+      <p>Built with ❤ by Arya Dafi Abdullah.</p>
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script src="js/script.js"></script>
 </body>
 </html>
