@@ -349,6 +349,39 @@ body {
   margin-bottom: 0.4rem;
 }
 
+.hq-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hq-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.section-alt .hq-card {
+  background: #0f172a;
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+.section-alt .hq-card h3 {
+  color: #e5e7eb;
+}
+
+.section-alt .hq-card p {
+  color: #cbd5f5;
+  font-size: 0.95rem;
+}
+
 /* CONTACT */
 .contact-grid {
   display: grid;
